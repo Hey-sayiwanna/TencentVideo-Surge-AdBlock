@@ -1,0 +1,10 @@
+#!name=腾讯视频测试7-i.video广告服务扫描
+#!desc=只扫描 i.video.qq.com 请求体中的 TRPC/广告相关服务名，不拦截、不修改任何请求
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-iVideo-Scanner = type=http-request,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=65536,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-iVideo-Scanner.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
