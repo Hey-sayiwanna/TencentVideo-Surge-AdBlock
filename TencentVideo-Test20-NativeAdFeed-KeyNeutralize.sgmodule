@@ -1,0 +1,10 @@
+#!name=腾讯视频测试20-个人中心原生广告卡失效
+#!desc=针对 Test18 中未包含 AdFocusPoster 的 AdFeedInfo 原生广告卡，精确失效其外层 field #1；用于个人中心/原生卡片去除测试
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-NativeAdFeed-KeyNeutralize = type=http-response,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=524288,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-Test20-NativeAdFeed-KeyNeutralize.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
