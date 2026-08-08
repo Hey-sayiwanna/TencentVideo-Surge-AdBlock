@@ -1,0 +1,10 @@
+#!name=腾讯视频测试15-i.video响应只读扫描
+#!desc=只扫描 i.video.qq.com 响应体，不挂请求脚本、不拦截、不修改；用于定位个人中心广告卡片真实 protobuf 字段
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-iVideo-ResponseOnly-Scanner = type=http-response,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=1048576,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-iVideo-ResponseOnly-Scanner.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
