@@ -1,0 +1,10 @@
+#!name=腾讯视频测试13-个人中心Banner定点拦截
+#!desc=仅拦截 i.video.qq.com 中 MVLPageService + personal_center_banner_day 请求；其他请求原样放行
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-PersonalCenterBanner-Block = type=http-request,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=65536,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-PersonalCenterBanner-Block.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
