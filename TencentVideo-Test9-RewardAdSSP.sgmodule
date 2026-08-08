@@ -1,0 +1,10 @@
+#!name=腾讯视频测试9-reward_ad_ssp精确拦截
+#!desc=仅拦截 i.video.qq.com 请求体中的 trpc.reward_ad_ssp.reward_ad_ssp_service.adService；不挂响应脚本
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-RewardAdSSP-Block = type=http-request,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,max-size=65536,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-RewardAdSSP-Block.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
