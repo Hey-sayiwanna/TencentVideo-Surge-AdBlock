@@ -1,0 +1,10 @@
+#!name=腾讯视频测试10-reward_ad_ssp二进制精确拦截
+#!desc=使用 binary-body-mode 精确识别 i.video.qq.com protobuf 请求中的 reward_ad_ssp.adService；其他请求原样放行
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-RewardAdSSP-Block-v2 = type=http-request,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=65536,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-RewardAdSSP-Block-v2.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
