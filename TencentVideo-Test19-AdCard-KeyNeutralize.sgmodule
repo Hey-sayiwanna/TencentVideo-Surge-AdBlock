@@ -1,0 +1,10 @@
+#!name=腾讯视频测试19-广告卡片字段失效
+#!desc=基于Test18实抓结构，仅将确认的广告卡片外层 protobuf field #1 标签改为未知 field #15；不删字节、不改长度，目标是让广告卡片从页面列表中消失
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-AdCard-KeyNeutralize = type=http-response,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=524288,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-Test19-AdCard-KeyNeutralize.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
