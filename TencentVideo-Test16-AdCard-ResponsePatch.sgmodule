@@ -1,0 +1,10 @@
+#!name=腾讯视频测试16-广告卡片响应去除
+#!desc=只处理 i.video.qq.com 返回中同时包含 AdFeedInfo + AdFocusPoster 的广告卡片响应；使用等长字节替换让客户端忽略广告卡，不改正常页面数据
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-AdCard-ResponsePatch = type=http-response,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=524288,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-Test16-AdCard-ResponsePatch.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
