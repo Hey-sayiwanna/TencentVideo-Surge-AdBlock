@@ -1,0 +1,10 @@
+#!name=腾讯视频测试12-i.video服务追踪
+#!desc=只读取 i.video.qq.com 请求中的 TRPC 服务名及广告/页面布局关键词；不拦截、不修改
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-iVideo-ServiceTrace-v2 = type=http-request,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=65536,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-iVideo-ServiceTrace-v2.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
