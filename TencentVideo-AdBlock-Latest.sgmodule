@@ -1,9 +1,9 @@
 #!name=腾讯视频去广告（持续更新）
-#!desc=固定安装链接；当前版本采用 Test21 Protobuf 广告卡片整块删除。后续版本继续更新本模块，无需重复导入。
+#!desc=固定安装链接；当前版本 V22：针对 i.video.qq.com / live4iphoneRel 的 Protobuf 广告对象做等长原位失效，不改变响应长度，避免腾讯私有封装头失效。
 #!author=Hey-sayiwanna
 
 [Script]
-TencentVideo-AdBlock-Latest = type=http-response,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=524288,debug=1,engine=jsc,timeout=10,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-Test21-Protobuf-AdBlock-Remove.js,script-update-interval=21600
+TencentVideo-AdBlock-Latest = type=http-response,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=524288,debug=1,engine=jsc,timeout=10,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-V22-InPlace-AdDisable.js,script-update-interval=21600
 
 [MITM]
 hostname = %APPEND% i.video.qq.com
