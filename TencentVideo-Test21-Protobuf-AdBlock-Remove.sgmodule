@@ -1,0 +1,10 @@
+#!name=腾讯视频测试21-Protobuf广告卡片整块删除
+#!desc=针对 i.video.qq.com 的 live4iphoneRel 等 Protobuf 响应，识别 ad_block_* / _ad_insert_mix_block / mod_adfeed 与 AdFeedInfo，并直接删除完整广告字段；不屏蔽正常图片/CDN。
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-Test21-Protobuf-AdBlock-Remove = type=http-response,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=524288,debug=1,engine=jsc,timeout=10,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-Test21-Protobuf-AdBlock-Remove.js,script-update-interval=21600
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
