@@ -1,0 +1,10 @@
+#!name=腾讯视频测试17-删除广告Block
+#!desc=在 i.video.qq.com 的 protobuf 响应中定位同时包含 AdFeedInfo + AdFocusPoster + 广告Block标记的最小长度字段，并删除整个字段，同时重建父级长度；目标是让广告卡片真正消失
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-AdBlock-Remove = type=http-response,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=524288,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-Test17-AdBlock-Remove.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
