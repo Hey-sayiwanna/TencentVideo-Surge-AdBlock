@@ -1,0 +1,11 @@
+#!name=腾讯视频测试8-i.video请求响应关联扫描
+#!desc=只观察 i.video.qq.com：记录请求 TRPC 服务并扫描对应响应中的广告/推荐关键词；不拦截、不修改
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-iVideo-ReqStore = type=http-request,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=65536,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-iVideo-ReqStore.js
+TencentVideo-iVideo-RespScanner = type=http-response,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=262144,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-iVideo-RespScanner.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
