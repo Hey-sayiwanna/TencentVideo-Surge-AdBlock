@@ -1,0 +1,10 @@
+#!name=腾讯视频测试5-个人中心广告
+#!desc=仅测试腾讯视频个人中心 GetPersonalCenterAdData 广告接口，其他 i.video.qq.com 请求原样放行
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-PersonalCenter-Ad = type=http-request,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=65536,debug=1,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-PersonalCenter-Ad.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
