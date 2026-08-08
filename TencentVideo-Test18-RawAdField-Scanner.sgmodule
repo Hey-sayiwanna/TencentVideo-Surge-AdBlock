@@ -1,0 +1,10 @@
+#!name=腾讯视频测试18-广告字段原始定位扫描
+#!desc=只读扫描 i.video.qq.com 响应中的 AdFeedInfo/AdFocusPoster 广告字段，绕过 TRPC 外层前缀定位真正 protobuf 长度字段；不修改响应
+#!author=Hey-sayiwanna
+
+[Script]
+TencentVideo-RawAdField-Scanner = type=http-response,pattern=^https:\/\/i\.video\.qq\.com\/?$,requires-body=1,binary-body-mode=1,max-size=524288,debug=1,engine=jsc,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentVideo-Surge-AdBlock/main/TencentVideo-Test18-RawAdField-Scanner.js
+
+[MITM]
+hostname = %APPEND% i.video.qq.com
+h2 = true
